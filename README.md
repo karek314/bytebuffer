@@ -38,7 +38,7 @@ $stream->save('data.bin');
 
 Reader example:
 ```php
-$stream = \ByteBuffer\Stream::factory(fopen('data.bin', 'r+'));
+$stream = BBStream::factory(fopen('data.bin', 'r+'));
 $stream->read(10);
 $stream->readBytes(4); // [255, 255, 255, 1]
 $stream->readString(5); // hello
