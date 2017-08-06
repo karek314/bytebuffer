@@ -52,7 +52,7 @@ $stream->skip(3);
 
 Allocate and pipe example:
 ```php
-$stream = \ByteBuffer\Stream::factory(fopen('data.bin', 'r+'));
+$stream = BBStream::factory(fopen('data.bin', 'r+'));
 $newStream = $stream->allocate(10); // allocate new buffer in memory
 $newStream->readString(4); // = pure
 
@@ -62,13 +62,13 @@ $stream->readBytes(4); // = [255, 255, 255 ,1]
 
 Network example:
 ```php
-$stream = \ByteBuffer\Stream::factory(fsockopen('google.com', 80));
+$stream = BBStream::factory(fsockopen('google.com', 80));
 $stream->readBytes(4);
 ```
 
 Remote file example:
 ```php
-$stream = \ByteBuffer\Stream::factory(fopen('http://..../image.jpg', 'r'));
+$stream = BBStream::factory(fopen('http://..../image.jpg', 'r'));
 $bytes = $stream->readBytes(2);
 if ($bytes[0] == 0xff && $bytes[1] == 0xd8) {
    echo 'valid jpeg!';
