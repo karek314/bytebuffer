@@ -1,8 +1,6 @@
 <?php
 
-namespace ByteBuffer;
-
-class Utils
+class BBUtils
 {
     /**
      * Rounds X up to the next multiple of Y.

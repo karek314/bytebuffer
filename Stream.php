@@ -1,8 +1,6 @@
 <?php
 
-namespace ByteBuffer;
-
-class Stream
+class BBStream
 {
     /**
      * @var array
@@ -275,7 +273,7 @@ class Stream
      */
     public function writeInt($value, $size = 32)
     {
-        $bytes = Utils::intToBytes($value, $size);
+        $bytes = BBUtils::intToBytes($value, $size);
         if (!$this->isLittleEndian) {
             $bytes = array_reverse($bytes);
         }
@@ -290,7 +288,7 @@ class Stream
      */
     public function readInt($size = 32, $unsigned = true)
     {
-        $size = Utils::roundUp($size, 8);
+        $size = BBUtils::roundUp($size, 8);
         $data = $this->read($size / 8);
         $value = 0;
         switch ($size) {
@@ -320,7 +318,7 @@ class Stream
                 }
                 break;
         }
-        return $unsigned ? $value : Utils::unsignedToSigned($value, $size);
+        return $unsigned ? $value : BBUtils::unsignedToSigned($value, $size);
     }
 
     /**
