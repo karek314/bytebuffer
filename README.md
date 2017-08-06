@@ -9,7 +9,7 @@ Simplified version of A PHP library for reading and writing binary streams.
 
 ## Installation
 Add to project and
-```
+```php
 require_once('main.php');
 ```
 
