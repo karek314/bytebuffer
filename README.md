@@ -1,34 +1,25 @@
 ByteBuffer
 ====
 
-A PHP library for reading and writing binary streams.
+Simplified version of A PHP library for reading and writing binary streams.
 
 ## Requirements
 * PHP 5.3.0 and up.
 * bcmath extension
 
 ## Installation
+Add to project and
+```
+require_once('main.php');
+```
 
-The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
-
-Either run
-```
-php composer.phar require --prefer-dist tiamo/bytebuffer "*"
-```
-or add
-```
-"tiamo/bytebuffer": "*"
-```
-to the require section of your `composer.json` file.
 
 ## Usage
 
 Writer example:
 ```php
 // create a new empty stream (php://temp)
-$stream = \ByteBuffer\Stream::factory('', [
-    'charset' => 'cp1251' // optional, default string data charset
-]);
+$stream = BBStream::factory('', []);
 $stream->isLittleEndian = false; // default value is true
 $stream->write('pure bytes');
 $stream->writeBytes([255, 255, 255, 1]);
@@ -83,9 +74,6 @@ if ($bytes[0] == 0xff && $bytes[1] == 0xd8) {
    echo 'valid jpeg!';
 }
 ```
-
-## TODO
-* tests
 
 ## License
 Licensed under the [MIT license](http://opensource.org/licenses/MIT).
